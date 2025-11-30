@@ -1,1 +1,1 @@
-# Aruzhan Sabyrbek - Personal Website
+Personal Website
