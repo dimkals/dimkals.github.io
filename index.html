@@ -9,13 +9,91 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            color-scheme: light dark;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
+        body.dark-mode {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        body.dark-mode .bg-white {
+            background-color: #1f2937 !important;
+        }
+
+        body.dark-mode .text-slate-900,
+        body.dark-mode .text-slate-800,
+        body.dark-mode .text-slate-700 {
+            color: #f8fafc !important;
+        }
+
+        body.dark-mode .text-slate-600,
+        body.dark-mode .text-slate-500,
+        body.dark-mode .text-slate-400 {
+            color: #cbd5f5 !important;
+        }
+
+        body.dark-mode .bg-red-100 {
+            background-color: rgba(248, 113, 113, 0.15) !important;
+        }
+
+        body.dark-mode .bg-red-50\/30 {
+            background-color: rgba(248, 113, 113, 0.1) !important;
+        }
+
+        body.dark-mode .border-red-200,
+        body.dark-mode .border-red-100 {
+            border-color: #f87171 !important;
+        }
+
+        body.dark-mode .text-red-800,
+        body.dark-mode .hover\:text-red-800:hover,
+        body.dark-mode .group:hover .group-hover\:text-red-800 {
+            color: #f87171 !important;
+        }
+
         /* Style for the active navigation link */
         .active-link {
             color: #C62828; /* red-800 */
             transform: scale(1.1);
+        }
+
+        body.dark-mode .active-link {
+            color: #f87171;
+        }
+
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 9999px;
+            border: 1px solid rgba(185, 28, 28, 0.4);
+            background-color: #fff;
+            color: #991b1b;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(248, 113, 113, 0.15);
+        }
+
+        body.dark-mode .theme-toggle {
+            background-color: #1f2937;
+            color: #fbbf24;
+            border-color: rgba(248, 113, 113, 0.5);
+        }
+
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
         }
     </style>
 </head>
@@ -36,7 +114,21 @@
                         >
                         <h1 class="text-3xl font-bold text-slate-900">Dimitrios Kaltsogiannis</h1>
                         <p class="text-md">PhD Student & Graduate Research Assistant</p>
-                        <p class="text-md text-slate-500"><a href="https://sites.google.com/view/eirini-eleni-tsiropoulou/proton-lab" target="_blank" class="text-red-800">PROTON Lab, Arizona State University</a></p>
+                        <p class="text-md text-slate-500 flex items-center gap-2 flex-wrap">
+                            <a href="https://sites.google.com/view/eirini-eleni-tsiropoulou/proton-lab" target="_blank" class="text-red-800">PROTON Lab, Arizona State University</a>
+                            <button
+                                id="themeToggle"
+                                type="button"
+                                class="theme-toggle focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                                aria-label="Activate dark mode"
+                                aria-pressed="false"
+                                title="Toggle dark mode"
+                            >
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 2.5l2.52 5.11 5.64.82-4.08 3.98.96 5.61L12 15.97l-5.04 2.65.96-5.61-4.08-3.98 5.64-.82L12 2.5Z"/>
+                                </svg>
+                            </button>
+                        </p>
                     </div>
 
                     <!-- Navigation Links -->
@@ -52,9 +144,9 @@
                     </nav>
 
                     <!-- Contact Information -->
-                    <div class="mt-auto w-full">
+                    <div class="my-8 md:my-16">
                         <h3 class="text-lg font-semibold text-slate-700 mb-4">Contact</h3>
-                        <div class="space-y-3">
+                        <div class="space-y-4">
                             <a href="mailto:dkaltsog@asu.edu" class="flex items-center group text-slate-600 hover:text-red-800 transition-colors">
                                 <svg class="w-5 h-5 mr-3 text-slate-400 group-hover:text-red-800 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                   <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
@@ -303,6 +395,50 @@
         sections.forEach(section => {
             observer.observe(section);
         });
+
+        // Theme toggling logic
+        const themeToggleButton = document.getElementById('themeToggle');
+        const sunIcon = `
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 5.75a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 12 5.75Zm-5.25 6.25a.75.75 0 0 1-.75.75H5.5a.75.75 0 0 1 0-1.5h.5a.75.75 0 0 1 .75.75Zm11.5 0a.75.75 0 0 1-.75.75h-.5a.75.75 0 0 1 0-1.5h.5a.75.75 0 0 1 .75.75Zm-6.25 6.25a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-1.5 0v-.5a.75.75 0 0 1 .75-.75Zm-3.8-12.22a.75.75 0 0 1 1.06 0l.36.36a.75.75 0 0 1-1.06 1.06l-.36-.36a.75.75 0 0 1 0-1.06Zm8.48 8.48a.75.75 0 0 1 1.06 0l.36.36a.75.75 0 0 1-1.06 1.06l-.36-.36a.75.75 0 0 1 0-1.06Zm0-8.48.36.36a.75.75 0 1 1-1.06 1.06l-.36-.36a.75.75 0 1 1 1.06-1.06ZM8.7 15.92l.36.36a.75.75 0 1 1-1.06 1.06l-.36-.36a.75.75 0 1 1 1.06-1.06ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"/>
+            </svg>`;
+        const moonIcon = `
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2.5l2.52 5.11 5.64.82-4.08 3.98.96 5.61L12 15.97l-5.04 2.65.96-5.61-4.08-3.98 5.64-.82L12 2.5Z"/>
+            </svg>`;
+
+        let isDarkMode = false;
+
+        const updateToggleUI = () => {
+            if (!themeToggleButton) return;
+            themeToggleButton.innerHTML = isDarkMode ? sunIcon : moonIcon;
+            const label = isDarkMode ? 'Switch to light mode' : 'Switch to dark mode';
+            themeToggleButton.setAttribute('aria-label', label);
+            themeToggleButton.setAttribute('title', label);
+            themeToggleButton.setAttribute('aria-pressed', isDarkMode ? 'true' : 'false');
+        };
+
+        const applyThemeClass = () => {
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleUI();
+        };
+
+        if (themeToggleButton) {
+            applyThemeClass();
+
+            const toggleTheme = () => {
+                isDarkMode = !isDarkMode;
+                applyThemeClass();
+            };
+
+            themeToggleButton.addEventListener('click', toggleTheme);
+            themeToggleButton.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleTheme();
+                }
+            });
+        }
     </script>
 </body>
 </html>
