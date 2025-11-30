@@ -398,6 +398,7 @@
 
         // Theme toggling logic
         const themeToggleButton = document.getElementById('themeToggle');
+        const themeStorageKey = 'dk-theme';
         const sunIcon = `
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 5.75a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 12 5.75Zm-5.25 6.25a.75.75 0 0 1-.75.75H5.5a.75.75 0 0 1 0-1.5h.5a.75.75 0 0 1 .75.75Zm11.5 0a.75.75 0 0 1-.75.75h-.5a.75.75 0 0 1 0-1.5h.5a.75.75 0 0 1 .75.75Zm-6.25 6.25a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-1.5 0v-.5a.75.75 0 0 1 .75-.75Zm-3.8-12.22a.75.75 0 0 1 1.06 0l.36.36a.75.75 0 0 1-1.06 1.06l-.36-.36a.75.75 0 0 1 0-1.06Zm8.48 8.48a.75.75 0 0 1 1.06 0l.36.36a.75.75 0 0 1-1.06 1.06l-.36-.36a.75.75 0 0 1 0-1.06Zm0-8.48.36.36a.75.75 0 1 1-1.06 1.06l-.36-.36a.75.75 0 1 1 1.06-1.06ZM8.7 15.92l.36.36a.75.75 0 1 1-1.06 1.06l-.36-.36a.75.75 0 1 1 1.06-1.06ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"/>
@@ -407,7 +408,31 @@
                 <path d="M12 2.5l2.52 5.11 5.64.82-4.08 3.98.96 5.61L12 15.97l-5.04 2.65.96-5.61-4.08-3.98 5.64-.82L12 2.5Z"/>
             </svg>`;
 
-        let isDarkMode = false;
+        const safeStorage = {
+            get() {
+                try {
+                    return localStorage.getItem(themeStorageKey);
+                } catch {
+                    return null;
+                }
+            },
+            set(value) {
+                try {
+                    localStorage.setItem(themeStorageKey, value);
+                } catch {
+                    /* ignore */
+                }
+            }
+        };
+
+        const getInitialTheme = () => {
+            const stored = safeStorage.get();
+            if (stored === 'dark') return true;
+            if (stored === 'light') return false;
+            return false; // default to light
+        };
+
+        let isDarkMode = getInitialTheme();
 
         const updateToggleUI = () => {
             if (!themeToggleButton) return;
@@ -428,6 +453,7 @@
 
             const toggleTheme = () => {
                 isDarkMode = !isDarkMode;
+                safeStorage.set(isDarkMode ? 'dark' : 'light');
                 applyThemeClass();
             };
 
