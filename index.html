@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimitrios Kaltsogiannis- Personal Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the active navigation link */
+        .active-link {
+            color: #C62828; /* red-800 */
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="md:flex">
+            <!-- Left Sidebar: Fixed navigation -->
+            <aside class="md:w-1/3 md:sticky top-0 md:h-screen md:overflow-y-auto p-8">
+                <div class="flex flex-col items-center md:items-start text-center md:text-left h-full">
+                    <!-- Profile Picture and Name -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <img 
+                            src="images/profile.jpg" 
+                            alt="Dimitrios Kaltsogiannis" 
+                            class="rounded-full w-32 h-32 mb-4 border-2 border-white shadow-lg"
+                            onerror="this.onerror=null;this.src='https://placehold.co/128x128/E0E7FF/4F46E5?text=DK';"
+                        >
+                        <h1 class="text-3xl font-bold text-slate-900">Dimitrios Kaltsogiannis</h1>
+                        <p class="text-md">PhD Student & Graduate Research Assistant</p>
+                        <p class="text-md text-slate-500"><a href="https://sites.google.com/view/eirini-eleni-tsiropoulou/proton-lab" target="_blank" class="text-red-800">PROTON Lab, Arizona State University</a></p>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <nav class="my-8 md:my-16">
+                        <ul class="space-y-4">
+                            <li><a href="#about" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">About</a></li>
+                            <li><a href="#education" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">Education</a></li>
+                            <li><a href="#experience" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">Experience</a></li>
+                            <li><a href="#publications" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">Publications</a></li>
+                            <li><a href="#awards" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">Awards</a></li>
+                            <li><a href="#skills" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">Skills</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Contact Information -->
+                    <div class="mt-auto w-full">
+                        <h3 class="text-lg font-semibold text-slate-700 mb-4">Contact</h3>
+                        <div class="space-y-3">
+                            <a href="mailto:dkaltsog@asu.edu" class="flex items-center group text-slate-600 hover:text-red-800 transition-colors">
+                                <svg class="w-5 h-5 mr-3 text-slate-400 group-hover:text-red-800 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                  <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                                  <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                                </svg>
+                                <span>Email</span>
+                            </a>
+                             <a href="https://github.com/dimkals" class="flex items-center group text-slate-600 hover:text-red-800 transition-colors">
+                                <svg class="w-5 h-5 mr-3 text-slate-400 group-hover:text-red-800 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
+                                </svg>
+                                <span>GitHub</span>
+                            </a>
+                            <!-- <a href="https://scholar.google.com/citations?user=" class="flex items-center group text-slate-600 hover:text-red-800 transition-colors">
+                               <svg class="w-5 h-5 mr-3 text-slate-400 group-hover:text-red-800 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                  <path d="M12 12.28l-3.88 2.37.94-4.5L5.47 7.42l4.61-.34L12 3l1.92 4.08 4.61.34-3.59 2.73.94 4.5z"/>
+                                  <path d="M0 0h24v24H0z" fill="none"/>
+                                  <path d="M12 12.28l-3.88 2.37.94-4.5L5.47 7.42l4.61-.34L12 3l1.92 4.08 4.61.34-3.59 2.73.94 4.5z" opacity=".3"/>
+                                  <path d="M12.91 10.12c.32-.23.59-.53.78-.9.19-.37.29-.77.29-1.22 0-.45-.1-.85-.29-1.22-.19-.37-.46-.66-.78-.9L12 5.5l-.91.38c-.32.24-.59.53-.78.9-.19.37-.29.77-.29 1.22 0 .45.1.85.29 1.22.19.37.46.67.78.9l.91.38.91-.38zM12 7c.28 0 .5.22.5.5s-.22.5-.5.5-.5-.22-.5-.5.22-.5.5-.5z"/>
+                                  <path d="m12 15.5-3.88 2.37.94-4.5-3.59-2.73 4.61-.34L12 6l1.92 4.08 4.61.34-3.59 2.73.94 4.5L12 15.5zM12 13.5l2.25 1.37-.42-2.5 1.82-1.42-2.5-.18L12 9l-1.15 2.77-2.5.18 1.82 1.42-.42 2.5L12 13.5z"/>
+                               </svg>
+                                <span>Google Scholar</span>
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Content: Scrollable resume sections -->
+            <main class="md:w-2/3 p-4 md:p-12">
+                <!-- About Section -->
+                <section id="about" class="mb-16 scroll-mt-24">
+                    <div class="bg-white p-8 rounded-2xl shadow-md space-y-6">
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-red-200 pb-2 mb-4">About</h2>
+                        </div>
+
+                        <div class="prose max-w-none">
+                            <p class="text-slate-600 leading-relaxed">
+                                I am a 1st year Ph.D. student in the School of Electrical, Computer and Energy Engineering at Arizona State University and a member of the Performance and Resource Optimization in Networks (<strong><a href="https://sites.google.com/view/eirini-eleni-tsiropoulou/proton-lab" target="_blank" class="text-red-800 hover:text-red-800 transition-colors">PROTON Lab</a></strong>), advised by Dr. Eirini Eleni Tsiropoulou.
+                            </p>
+                            <p class="text-slate-600 leading-relaxed mt-3">My research focuses on deep learning and reinforcement learning in low altitude economy applications.  
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-slate-800 mb-2">Interests</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Deep Learning</span>
+                                <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Reinforcement Learning</span>
+                                <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Low Altitude Economy</span>
+                                <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Systems Optimization</span>
+                                <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Internet of Things</span><span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Energy-Aware Edge Computing</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section id="education" class="mb-16 scroll-mt-24">
+                     <div class="bg-white p-8 rounded-2xl shadow-md">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-red-200 pb-2 mb-4">Education</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-xl font-semibold text-slate-800">PhD in Computer Engineering</h3>
+                                <p class="text-md text-red-800">Arizona State University | Aug 2025 - Present</p>
+                                <p class="text-slate-500 italic mt-1">Expected graduation: Spring 2029</p>
+                                <p class="text-slate-500 italic mt-1">
+                                Graduate Research Associate at Performance and Resource Optimization in Networks (PROTON) Lab.
+                                </p>
+                                <p class="text-slate-500 italic mt-1">
+                                Advisor: Dr. Eirini Eleni Tsiropoulou</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-slate-800">Joint BSc & MEng in Electrical & Computer Engineering</h3>
+                                <p class="text-md text-red-800">National Technical University of Athens (NTUA), Greece</p>
+                                <p class="text-slate-500 italic mt-1">
+                                Thesis Research at Network Management & Optimal Design (NETMODE) Laboratory.</p>
+                                <p class="text-slate-500 italic mt-1">Advisor: Dr. Symeon Papavassiliou</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Professional Experience Section -->
+                <section id="experience" class="mb-16 scroll-mt-24">
+                     <div class="bg-white p-8 rounded-2xl shadow-md">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-red-200 pb-2 mb-4">Industry Experience</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-xl font-semibold text-slate-800">Lead Software Engineer </h3>
+                                <p class="text-md text-red-800">Spotawheel, Nea Ionia, Greece | Apr 2022 - May 2024</p>
+                                <p class="text-slate-500 italic mt-1">Supervisor: Nikos Vavoulas (CTO)</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-slate-800">Lead Back-End Engineer</h3>
+                                <p class="text-md text-red-800">Spotawheel, Nea Ionia, Greece | Sep 2021 - Apr 2022</p>
+                                <p class="text-slate-500 italic mt-1">Supervisor: Nikos Vavoulas (CTO)</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-slate-800">Software Engineer</h3>
+                                <p class="text-md text-red-800">Spotawheel, Nea Ionia, Greece | Sep 2020 - Sep 2021</p>
+                                <p class="text-slate-500 italic mt-1">Supervisor: Babis Papakonstantinou (Lead Software Engineer)</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Publications Section -->
+                <section id="publications" class="mb-16 scroll-mt-24">
+                     <div class="bg-white p-8 rounded-2xl shadow-md">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-red-200 pb-2 mb-4">Selected Publications</h2>
+                        <div class="space-y-6">
+                            <div class="leading-relaxed">
+                                <p class="font-semibold text-slate-800">Large Language Model-driven Low Altitude Economy Enabled by Over-the-Air Computation</p>
+                                <p class="text-slate-600 mt-1"><span class="font-medium">Authors:</span><span class="font-bold"> Dimitrios Kaltsogiannis</span>, Aruzhan Sabyrbek, Eirini Eleni Tsiropoulou</p>
+                                <p class="text-slate-600 text-sm"><span class="font-medium">Under review for IEEE Network Magazine, 2026</p>
+                            </div>
+                            <div class="leading-relaxed">
+                                <p class="font-semibold text-slate-800">Intelligent Drone Pickup Scheduling via Deep Reinforcement Learning in Low Altitude Economy Networks</p>
+                                <p class="text-slate-600 mt-1"><span class="font-medium">Authors:</span> K M Rumman, <span class="font-bold">Dimitrios Kaltsogiannis</span>, Eirini Eleni Tsiropoulou</p>
+                                <p class="text-slate-600 text-sm"><span class="font-medium">Under review for Elsevier, Internet of Things, 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Awards Section -->
+                <section id="awards" class="mb-16 scroll-mt-24">
+                     <div class="bg-white p-8 rounded-2xl shadow-md">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-red-200 pb-2 mb-4">Awards</h2>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl border border-red-100 bg-red-50/30">
+                                <div class="flex flex-wrap items-center gap-2 mb-1">
+                                    <span class="text-slate-800 font-semibold">ASU Fulton Scholarship</span>
+                                    <span class="bg-red-100 text-red-800 text-xs font-medium px-2 py-0.5 rounded-full">Aug 2025</span>
+                                </div>
+                                <p class="text-slate-600 text-sm">An one-time award for exceptional incoming PhD students.</p>
+                            </div>
+
+                            <div class="p-4 rounded-xl border border-red-100 bg-red-50/30">
+                                <div class="flex flex-wrap items-center gap-2 mb-1">
+                                    <span class="text-slate-800 font-semibold">Employee of the Month at Spotawheel</span>
+                                    <span class="bg-red-100 text-red-800 text-xs font-medium px-2 py-0.5 rounded-full">Aug 2022</span>
+                                </div>
+                                <p class="text-slate-600 text-sm">Selected as the first-ever Employee of the Month, earning top votes among approximately 400 employees company-wide, highlighting outstanding performance and contributions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Hard Skills Section -->
+                <section id="skills" class="mb-16 scroll-mt-24">
+                     <div class="bg-white p-8 rounded-2xl shadow-md">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-red-200 pb-2 mb-4">Skills</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-semibold text-slate-700">Programming Languages</h3>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">PHP</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">C/C++</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-slate-700">Frameworks & Libraries</h3>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">PyTorch</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">TensorFlow</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Laravel</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Vue.js</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">PHPUnit</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Symfony</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Livewire</span>
+                                </div>
+                            </div>
+                             <div>
+                                <h3 class="font-semibold text-slate-700">Tools & Services</h3>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Docker</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Laravel Forge</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Kubernetes</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Envoyer</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Jupyter Notebooks</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Git & GitHub</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">AWS Cloud Services</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Digital Ocean</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Jira</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Miro</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-slate-700">Database Systems & Search Engines:</h3>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">PostgreSQL</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">MySQL</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">redis</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Elasticsearch</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Meilisearch</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-slate-700">Power Skills</h3>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Project Management</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Mentoring</span>
+                                    <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Leadership</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- JavaScript for scroll-spy effect -->
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const observerOptions = {
+            root: null, // observes intersections relative to the viewport
+            rootMargin: '0px',
+            threshold: 0.4 // trigger when 40% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        // Remove active class from all links
+                        link.classList.remove('active-link');
+                        // Add active class to the link corresponding to the visible section
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active-link');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe each section
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
