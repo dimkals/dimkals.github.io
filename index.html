@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            color-scheme: light dark;
+            color-scheme: light;
         }
 
         body {
@@ -98,6 +98,22 @@
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
+    <script>
+        // Apply the theme before the page is drawn: saved choice first, otherwise the device setting
+        (function () {
+            var dark = false;
+            try {
+                var saved = localStorage.getItem('dk-theme');
+                dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+            if (dark) {
+                document.body.classList.add('dark-mode');
+                document.documentElement.style.colorScheme = 'dark';
+            }
+        })();
+    </script>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="md:flex">
@@ -137,6 +153,7 @@
                             <li><a href="#about" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">About</a></li>
                             <li><a href="#education" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">Education</a></li>
                             <li><a href="#experience" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">Experience</a></li>
+                            <li><a href="#service" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">Service</a></li>
                             <li><a href="#publications" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">Publications</a></li>
                             <li><a href="#awards" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">Awards</a></li>
                             <li><a href="#skills" class="nav-link text-lg font-medium text-slate-600 hover:text-red-800 transition-all duration-300">Skills</a></li>
@@ -154,7 +171,7 @@
                                 </svg>
                                 <span>Email</span>
                             </a>
-                             <a href="https://github.com/dimkals" class="flex items-center group text-slate-600 hover:text-red-800 transition-colors">
+                             <a href="https://github.com/dimkals" target="_blank" rel="noopener noreferrer" class="flex items-center group text-slate-600 hover:text-red-800 transition-colors">
                                 <svg class="w-5 h-5 mr-3 text-slate-400 group-hover:text-red-800 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
                                 </svg>
@@ -166,6 +183,16 @@
                                     <path d="M3 14h7.5v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1H21v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4Z" />
                                 </svg>
                                 <span>LinkedIn</span>
+                            </a>
+                            <a href="Dimitrios_Kaltsogiannis_CV.pdf" target="_blank" rel="noopener noreferrer" class="flex items-center group text-slate-600 hover:text-red-800 transition-colors">
+                                <svg class="w-5 h-5 mr-3 text-slate-400 group-hover:text-red-800 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V9h5.5L13 3.5ZM8 13h8v1.5H8V13Zm0 3.5h8V18H8v-1.5Z"/>
+                                </svg>
+                                <span>CV (PDF)</span>
+                            </a>
+                            <a href="https://orcid.org/0009-0003-9649-0103" target="_blank" rel="noopener noreferrer" class="flex items-center group text-slate-600 hover:text-red-800 transition-colors">
+                                <span class="w-5 h-5 mr-3 text-xs font-bold text-slate-400 group-hover:text-red-800 transition-colors flex items-center justify-center">iD</span>
+                                <span>ORCID</span>
                             </a>
                             <!-- <a href="https://scholar.google.com/citations?user=" class="flex items-center group text-slate-600 hover:text-red-800 transition-colors">
                                <svg class="w-5 h-5 mr-3 text-slate-400 group-hover:text-red-800 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -210,8 +237,10 @@
                                 <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Reinforcement Learning</span>
                                 <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Multi-Agent Learning</span>
                                 <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Game Theory</span>
+                                <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Optimization</span>
+                                <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Decision-Making Under Uncertainty</span>
                                 <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Integrated Sensing &amp; Communication (ISAC)</span>
-                                <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Wireless Sensing</span>
+                                <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Wireless Sensing &amp; Localization</span>
                                 <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">UAV Networks &amp; Low Altitude Economy</span>
                                 <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Energy-Aware Edge Computing</span>
                             </div>
@@ -228,19 +257,15 @@
                             <div>
                                 <h3 class="text-xl font-semibold text-slate-800">PhD in Computer Engineering (Electrical Engineering)</h3>
                                 <p class="text-md text-red-800">Arizona State University | Aug 2025 - Present</p>
-                                <p class="text-slate-500 italic mt-1">Expected graduation: Spring 2029</p>
-                                <p class="text-slate-500 italic mt-1">
-                                Graduate Research Associate at Performance and Resource Optimization in Networks (PROTON) Lab.
-                                </p>
-                                <p class="text-slate-500 italic mt-1">
-                                Advisor: Dr. Eirini Eleni Tsiropoulou</p>
+                                <p class="text-slate-500 italic mt-1">Expected graduation: Spring 2029 · GPA: 3.89/4.00</p>
+                                <p class="text-slate-500 italic mt-1">Graduate Research Associate at Performance and Resource Optimization in Networks (PROTON) Lab.</p>
+                                <p class="text-slate-500 italic mt-1">Advisor: Dr. Eirini Eleni Tsiropoulou</p>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold text-slate-800">Joint BSc & MEng in Electrical & Computer Engineering</h3>
-                                <p class="text-md text-red-800">National Technical University of Athens (NTUA), Greece</p>
-                                <p class="text-slate-500 italic mt-1">
-                                Thesis Research at Network Management & Optimal Design (NETMODE) Laboratory.</p>
-                                <p class="text-slate-500 italic mt-1">Advisor: Dr. Symeon Papavassiliou</p>
+                                <h3 class="text-xl font-semibold text-slate-800">Joint BSc &amp; MEng in Electrical &amp; Computer Engineering</h3>
+                                <p class="text-md text-red-800">National Technical University of Athens (NTUA), Greece | Graduated Jun 2026</p>
+                                <p class="text-slate-500 italic mt-1">Thesis: Optimizing Scheduling on Heterogeneous Resources for ML Pipelines</p>
+                                <p class="text-slate-500 italic mt-1">Network Management &amp; Optimal Design (NETMODE) Laboratory · Advisor: Dr. Symeon Papavassiliou</p>
                             </div>
                         </div>
                     </div>
@@ -252,20 +277,42 @@
                         <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-red-200 pb-2 mb-4">Industry Experience</h2>
                         <div class="space-y-6">
                             <div>
-                                <h3 class="text-xl font-semibold text-slate-800">Lead Software Engineer </h3>
+                                <h3 class="text-xl font-semibold text-slate-800">Lead Software Engineer</h3>
                                 <p class="text-md text-red-800">Spotawheel, Nea Ionia, Greece | Apr 2022 - May 2024</p>
-                                <p class="text-slate-500 italic mt-1">Supervisor: Nikos Vavoulas (CTO)</p>
+                                <ul class="list-disc pl-5 mt-2 text-slate-600 space-y-1">
+                                    <li>Led a team of 8 web developers and software engineers, managing projects end to end from design and budgeting to delivery</li>
+                                    <li>Managed R&amp;D projects that designed algorithms and software architectures for optimization and cost efficiency</li>
+                                    <li>Integrated computer vision and ML models into production with the data science team, supporting the company's &euro;100M Series B funding round</li>
+                                </ul>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-slate-800">Lead Back-End Engineer</h3>
                                 <p class="text-md text-red-800">Spotawheel, Nea Ionia, Greece | Sep 2021 - Apr 2022</p>
-                                <p class="text-slate-500 italic mt-1">Supervisor: Nikos Vavoulas (CTO)</p>
+                                <ul class="list-disc pl-5 mt-2 text-slate-600 space-y-1">
+                                    <li>Led a team of 4 web developers, mentored junior developers, and served as Scrum Master</li>
+                                    <li>Redesigned high-traffic API endpoints to stay reliable under heavy load, with zero-downtime server management</li>
+                                </ul>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-slate-800">Software Engineer</h3>
                                 <p class="text-md text-red-800">Spotawheel, Nea Ionia, Greece | Sep 2020 - Sep 2021</p>
-                                <p class="text-slate-500 italic mt-1">Supervisor: Babis Papakonstantinou (Lead Software Engineer)</p>
+                                <ul class="list-disc pl-5 mt-2 text-slate-600 space-y-1">
+                                    <li>Built a scalable multi-tenant application and REST API services</li>
+                                    <li>Developed the back end of a web scraping application handling large daily data volumes</li>
+                                </ul>
                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Leadership & Service Section -->
+                <section id="service" class="mb-16 scroll-mt-24">
+                     <div class="bg-white p-8 rounded-2xl shadow-md">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-red-200 pb-2 mb-4">Leadership &amp; Service</h2>
+                        <div>
+                            <h3 class="text-xl font-semibold text-slate-800">Treasurer</h3>
+                            <p class="text-md text-red-800">IEEE Communications Society (ComSoc) Student Branch Chapter, ASU | Feb 2026 - Present</p>
+                            <p class="text-slate-600 mt-2">Manage the chapter's finances for technical talks, workshops, and networking events.</p>
                         </div>
                     </div>
                 </section>
@@ -293,17 +340,22 @@
                             <div class="leading-relaxed">
                                 <p class="font-semibold text-slate-800">Agentic Edge Intelligence for Low Altitude Economy Drone Safe Landing with Secure ISAC and Energy Aware Control</p>
                                 <p class="text-slate-600 mt-1"><span class="font-medium">Authors:</span> K. M. Rumman, <span class="font-bold">Dimitrios Kaltsogiannis</span>, Eirini Eleni Tsiropoulou</p>
-                                <p class="text-slate-600 text-sm"><span class="italic">IEEE Transactions on Consumer Electronics</span>, under minor revision</p>
+                                <p class="text-slate-600 text-sm"><span class="italic">IEEE Transactions on Consumer Electronics</span>, 2026</p>
                             </div>
                             <div class="leading-relaxed">
                                 <p class="font-semibold text-slate-800">Low Altitude Economy Drone Swarm Localization via Distributed Regret Learning</p>
                                 <p class="text-slate-600 mt-1"><span class="font-medium">Authors:</span> <span class="font-bold">Dimitrios Kaltsogiannis</span>, Aruzhan Sabyrbek, André Riker, Eirini Eleni Tsiropoulou</p>
-                                <p class="text-slate-600 text-sm"><span class="italic">IEEE Access</span>, under major revision</p>
+                                <p class="text-slate-600 text-sm"><span class="italic">IEEE Access</span>, 2026, accepted</p>
                             </div>
                             <div class="leading-relaxed">
                                 <p class="font-semibold text-slate-800">Wireless Sensing Enabled by Unmanned Aerial Vehicles and Regret Learning</p>
                                 <p class="text-slate-600 mt-1"><span class="font-medium">Authors:</span> <span class="font-bold">Dimitrios Kaltsogiannis</span>, Aruzhan Sabyrbek, Eirini Eleni Tsiropoulou</p>
                                 <p class="text-slate-600 text-sm"><span class="italic">Computer Communications</span> (Elsevier), under review</p>
+                            </div>
+                            <div class="leading-relaxed">
+                                <p class="font-semibold text-slate-800">Over-the-Air Generative Semantic Communication for Low Altitude Economy Networks</p>
+                                <p class="text-slate-600 mt-1"><span class="font-medium">Authors:</span> <span class="font-bold">Dimitrios Kaltsogiannis</span>, Eirini Eleni Tsiropoulou</p>
+                                <p class="text-slate-600 text-sm"><span class="italic">IEEE International Conference on Communications (ICC)</span>, 2027, under review</p>
                             </div>
                         </div>
                     </div>
@@ -464,11 +516,13 @@
             }
         };
 
+        const systemDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
         const getInitialTheme = () => {
             const stored = safeStorage.get();
             if (stored === 'dark') return true;
             if (stored === 'light') return false;
-            return false; // default to light
+            return systemDarkQuery.matches; // default to the device/browser setting
         };
 
         let isDarkMode = getInitialTheme();
@@ -484,6 +538,7 @@
 
         const applyThemeClass = () => {
             document.body.classList.toggle('dark-mode', isDarkMode);
+            document.documentElement.style.colorScheme = isDarkMode ? 'dark' : 'light';
             updateToggleUI();
         };
 
@@ -504,7 +559,18 @@
                 }
             });
         }
+
+        // If the visitor never chose a theme, follow the device/browser setting when it changes
+        const onSystemThemeChange = (event) => {
+            if (safeStorage.get()) return;
+            isDarkMode = event.matches;
+            applyThemeClass();
+        };
+        if (systemDarkQuery.addEventListener) {
+            systemDarkQuery.addEventListener('change', onSystemThemeChange);
+        } else if (systemDarkQuery.addListener) {
+            systemDarkQuery.addListener(onSystemThemeChange);
+        }
     </script>
 </body>
 </html>
-A
